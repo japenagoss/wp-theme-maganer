@@ -61,3 +61,9 @@ add_action('admin_enqueue_scripts', 'wp_tmgr_load_styles_scripts');
  * --------------------------------------------------------------------
  */
 require DIR_WP_THEME_MANAGER.'/admin/back.php';
+
+/*
+ * Posttype for controls and sections taxonomy
+ * --------------------------------------------------------------------
+ */
+require DIR_WP_THEME_MANAGER.'/admin/sections.php';
