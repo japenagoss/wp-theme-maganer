@@ -58,7 +58,7 @@ function wp_tmgr_sections_init() {
         "capability_type"    => "post",
         "has_archive"        => false,
         "hierarchical"       => false,
-        "menu_position"      => null,
+        "menu_position"      => 100,
         "supports"           => array("title")
     );
 
@@ -72,8 +72,8 @@ add_action("init", "wp_tmgr_sections_init");
  */
 function wp_tmgr_register_meta_boxes() {
     add_meta_box( 
-        "wp-tmgr-kind-of-control", 
-        __("Tipo de control", "wp_theme_manager"), 
+        "wp-tmgr-settings", 
+        __("Configuraciones", "wp_theme_manager"), 
         "wp_tmgr_kind_control_display", 
         "tmgr_controls" 
     );
@@ -105,9 +105,10 @@ function wp_tmgr_save_meta_box($post_id){
             return $post_id;
         }
     } 
-    $mydata = sanitize_text_field($_POST["wp_tmgr_kind_of_control"]);
-    update_post_meta($post_id,"wp_tmgr_kind_of_control", $mydata);
-
+    $kind_control = sanitize_text_field($_POST["wp_tmgr_kind_of_control"]);
+    $logi_name    = sanitize_text_field($_POST["wp_tmgr_logical_name"]);
+    update_post_meta($post_id,"wp_tmgr_kind_of_control", $kind_control);
+    update_post_meta($post_id,"wp_tmgr_logical_name", $logi_name);
 }
 
 function wp_tmgr_load_posts(){
@@ -117,5 +118,5 @@ function wp_tmgr_load_posts(){
 
 if(is_admin()){
     add_action("load-post.php",     "wp_tmgr_load_posts");
-    add_action("load-post-new.php", "call_someClass");
+    add_action("load-post-new.php", "wp_tmgr_load_posts");
 }

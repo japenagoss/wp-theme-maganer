@@ -32,12 +32,15 @@ function wp_tmgr_generate_sections(){
             while($controls->have_posts()){
                 $controls->the_post();
                 
+                $id     = get_the_ID();
+                $title  = get_the_title();
+
                 array_push(
                     $sections["'"+$section->slug+"'"]["controls"],
                     wp_tmgr_create_control(
-                        get_post_meta(get_the_ID(),"wp_tmgr_kind_of_control",true),
-                        "wp-tmgr-".sanitize_title(get_the_title()),
-                        get_the_title()
+                        get_post_meta($id,"wp_tmgr_kind_of_control",true),
+                        "wp-tmgr-".get_post_meta($id,"wp_tmgr_logical_name",true),
+                        $title
                     )
                 );
             }

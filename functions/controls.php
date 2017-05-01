@@ -18,6 +18,7 @@ function wp_tmgr_create_control($type,$name,$label,$options = ""){
             $control .= '<div class="fieldset">';
             $control .= '<label for="'.$name.'"><b>'.$label.': </b></label><br />';
             $control .= '<input type="text" class="regular-text" name="'.$name.'" value="'.htmlentities($value).'">';
+            $control .= '<span> '.$name.'</span>';
             $control .= '</div>';
         break;
         case 'select':

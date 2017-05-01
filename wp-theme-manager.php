@@ -3,7 +3,7 @@
 Plugin Name: Wordpress Theme Manager
 Plugin URI: #
 Description: This is a plugin for manager differents settings in the activated theme
-Version: 0.1
+Version: 0.5
 Author: Jhony Penagos
 License: GPLv2 or later
 Text Domain: wp_theme_manager
