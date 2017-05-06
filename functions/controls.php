@@ -7,6 +7,7 @@ function wp_tmgr_create_control($type,$name,$label,$options = ""){
     $control     = '';
     $add_remove  = '';
     $value       = get_option($name);
+    $logic_name  = sanitize_title($name);
 
     if($type == "slide"){
         $add_remove  = '<span class="button button_add">+</span>';
@@ -16,14 +17,13 @@ function wp_tmgr_create_control($type,$name,$label,$options = ""){
     switch ($type) {
         case 'text':
             $control .= '<div class="fieldset">';
-            $control .= '<label for="'.$name.'"><b>'.$label.': </b></label><br />';
+            $control .= '<label for="'.$name.'"><b>'.$label.': </b><span>'.$logic_name.'</span></label>';
             $control .= '<input type="text" class="regular-text" name="'.$name.'" value="'.htmlentities($value).'">';
-            $control .= '<span> '.$name.'</span>';
             $control .= '</div>';
         break;
         case 'select':
             $control .= '<div class="fieldset">';
-            $control .= '<label for="'.$name.'"><b>'.$label.': </b></label><br />';
+            $control .= '<label for="'.$name.'"><b>'.$label.': </b><span>'.$logic_name.'</span></label>';
             $control .= '<select name="'.$name.'">';
 
             foreach($options as $key => $val) {
@@ -36,7 +36,7 @@ function wp_tmgr_create_control($type,$name,$label,$options = ""){
         break;
         case 'color':
             $control .= '<div class="fieldset">';
-            $control .= '<label for="'.$name.'"><b>'.$label.': </b></label><br />';
+            $control .= '<label for="'.$name.'"><b>'.$label.': </b><span>'.$logic_name.'</span></label>';
             $control .= '<input type="text" class="regular-text btr-color-field" name="'.$name.'" value="'.$value.'">';
             $control .= '</div>';
         break;
@@ -56,7 +56,7 @@ function wp_tmgr_create_control($type,$name,$label,$options = ""){
         break;
         case 'editor':
             ob_start();
-            echo '<label><b>'.$label.'</b></label>';
+            echo '<label for="'.$name.'"><b>'.$label.': </b><span>'.$logic_name.'</span></label>';
             
             $settings = array(
                 'wpautop' => false
@@ -80,7 +80,7 @@ function wp_tmgr_create_control($type,$name,$label,$options = ""){
  */
 function wp_tmgr_generate_image_control($label,$name,$value,$add_remove){
     $control .= '<div class="fieldset">';
-    $control .= '<label for="'.$name.'"><b>'.$label.':</b></label>';
+    $control .= '<label for="'.$name.'"><b>'.$label.': </b><span>'.$logic_name.'</span></label>';
     $control .= '<div class="controls">';
     $control .= '<input type="text" class="upload regular-text" name="'.$name.'" value="'.$value.'">';
     $control .= $add_remove;

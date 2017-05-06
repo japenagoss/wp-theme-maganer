@@ -126,12 +126,10 @@
 }
 
 #wp_tmgr_container .content label{
-    margin: 10px 0 10px 0;
-    padding: 7px 0px;
+    margin:20px 0px 5px 0px;
     border-bottom: 1px solid #e7e7e7;
     display: block;
 }
-
 
 #wp_tmgr_container .content-hide{
     display: none;
