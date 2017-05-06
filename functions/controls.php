@@ -41,16 +41,16 @@ function wp_tmgr_create_control($type,$name,$label,$options = ""){
             $control .= '</div>';
         break;
         case 'image':
-            $control .= wp_tmgr_generate_image_control($label,$name,$value,$add_remove);
+            $control .= wp_tmgr_generate_image_control($label,$name,$value,$add_remove,$logic_name);
         break;
         case 'slide':
             if(empty($value)){
-                $control .= wp_tmgr_generate_image_control($label,$name."[]","",$add_remove);
+                $control .= wp_tmgr_generate_image_control($label,$name."[]","",$add_remove,$logic_name);
             }
             else{
                 $value = maybe_unserialize($value);
                 foreach ($value as $key => $val){
-                    $control .= wp_tmgr_generate_image_control($label,$name."[]",$val,$add_remove);
+                    $control .= wp_tmgr_generate_image_control($label,$name."[]",$val,$add_remove,$logic_name);
                 }
             }
         break;
@@ -78,7 +78,7 @@ function wp_tmgr_create_control($type,$name,$label,$options = ""){
  * Function for create images controls
  * --------------------------------------------------------------------
  */
-function wp_tmgr_generate_image_control($label,$name,$value,$add_remove){
+function wp_tmgr_generate_image_control($label,$name,$value,$add_remove,$logic_name){
     $control .= '<div class="fieldset">';
     $control .= '<label for="'.$name.'"><b>'.$label.': </b><span>'.$logic_name.'</span></label>';
     $control .= '<div class="controls">';
