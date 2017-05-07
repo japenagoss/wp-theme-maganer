@@ -2,14 +2,12 @@
 require DIR_WP_THEME_MANAGER."/functions/controls.php";
 
 function wp_tmgr_generate_sections(){
-    $sections = array();
+    $sections   = array();
+    $terms      = get_terms("tmgr_sections",array());
 
-    $sections = get_terms("tmgr_sections",array(
-        "hide_empty" => false,
-    ));
+    foreach($terms as $section){
 
-    foreach($sections as $section){
-        $sections["'"+$section->slug+"'"] = array(
+        $sections["'".$section->slug."'"] = array(
             "name"  => $section->name,
             "id"    => $section->slug,
             "controls"  => array()
@@ -18,6 +16,8 @@ function wp_tmgr_generate_sections(){
         $args = array(
             "post_type"         => "tmgr_controls",
             "posts_per_page"    => -1,
+            "orderby"           => "menu_order",
+            "order"             => "DESC",
             "tax_query"         => array(
                 array(
                     "taxonomy" => "tmgr_sections",
@@ -36,10 +36,10 @@ function wp_tmgr_generate_sections(){
                 $title  = get_the_title();
 
                 array_push(
-                    $sections["'"+$section->slug+"'"]["controls"],
+                    $sections["'".$section->slug."'"]["controls"],
                     wp_tmgr_create_control(
                         get_post_meta($id,"wp_tmgr_kind_of_control",true),
-                        "wp-tmgr-".get_post_meta($id,"wp_tmgr_logical_name",true),
+                        "wp-tmgr-".get_post_meta($id,"wp_tmgr_logical_name",true)."-".$id,
                         $title
                     )
                 );

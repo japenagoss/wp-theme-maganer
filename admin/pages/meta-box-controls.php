@@ -26,7 +26,7 @@ $logi_name  = get_post_meta($post->ID,"wp_tmgr_logical_name",true);
             <td>
                 <input type="text" name="wp_tmgr_logical_name" value="<?php echo $logi_name;?>">
                 <?php if(!empty($logi_name)):?>
-                    <span>(wp-tmgr-<?php echo $logi_name;?>)</span>
+                    <span>(wp-tmgr-<?php echo sanitize_title($logi_name)."-".$post->ID;?>)</span>
                 <?php endif;?>
             </td>
         </tr>

@@ -23,23 +23,23 @@
         <section class="main">
             <section class="of-nav">
                 <ul>
-                    <?php for($i = 0; $i < count($sections); $i++):?>
+                    <?php foreach($sections as $section):?>
                         <li>
-                            <a href="#<?php echo $sections[$i]['id'];?>"><?php echo $sections[$i]['name'];?></a>
+                            <a href="#<?php echo $section['id'];?>"><?php echo $section['name'];?></a>
                         </li>
-                    <?php endfor;?>
+                    <?php endforeach;?>
                 </ul>
             </section>
 
             <section class="content">
                 <!-- Print content of sections -->
-                <?php for($i = 0; $i < count($sections); $i++):?>
-                    <div id='<?php echo $sections[$i]['id'];?>' class='content-hide'>
-                        <?php for($j = 0; $j < count($sections[$i]['controls']); $j++):?>
-                            <?php echo $sections[$i]['controls'][$j];?>
+                <?php foreach($sections as $section):?>
+                    <div id='<?php echo $section['id'];?>' class='content-hide'>
+                        <?php for($j = 0; $j < count($section['controls']); $j++):?>
+                            <?php echo $section['controls'][$j];?>
                         <?php endfor;?> 
                     </div>
-                <?php endfor;?>
+                <?php endforeach;?>
             
             </section>
         </section>
