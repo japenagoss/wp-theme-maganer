@@ -16,6 +16,7 @@ $logi_name  = get_post_meta($post->ID,"wp_tmgr_logical_name",true);
                     <option value="color"  <?php echo ($control == "color")? "selected":"";?>><?php _e("Color", "wp_theme_manager");?></option>
                     <option value="image"  <?php echo ($control == "image")? "selected":"";?>><?php _e("Imagen", "wp_theme_manager");?></option>
                     <option value="editor" <?php echo ($control == "editor")? "selected":"";?>><?php _e("Editor", "wp_theme_manager");?></option>
+                    <option value="textarea" <?php echo ($control == "editor")? "selected":"";?>><?php _e("Caja de texto", "wp_theme_manager");?></option>
                 </select>
             </td>
         </tr>

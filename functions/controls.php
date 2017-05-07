@@ -21,6 +21,12 @@ function wp_tmgr_create_control($type,$name,$label,$options = ""){
             $control .= '<input type="text" class="regular-text" name="'.$name.'" value="'.htmlentities($value).'">';
             $control .= '</div>';
         break;
+        case 'textarea':
+            $control .= '<div class="fieldset">';
+            $control .= '<label for="'.$name.'"><b>'.$label.': </b></label>';
+            $control .= '<textarea rows="10" name="'.$name.'" class="regular-text">'.htmlentities($value).'</textarea>';
+            $control .= '</div>';
+        break;
         case 'select':
             $control .= '<div class="fieldset">';
             $control .= '<label for="'.$name.'"><b>'.$label.': </b></label>';
