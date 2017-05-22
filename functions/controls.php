@@ -93,10 +93,10 @@ function wp_tmgr_generate_image_control($label,$name,$value,$add_remove){
     $control .= '</div>';
     $control .= '<div class="upload_button_div">';
     $control .= '<span class="button media_upload_button">';
-    $control .= __('Select','cip');
+    $control .= __('Seleccionar','wp_theme_manager');
     $control .= '</span>';
     $control .= '<span class="button mlu_remove_button">';
-    $control .= __('Remove','cip');
+    $control .= __('Borrar','wp_theme_manager');
     $control .= '</span>';
     $control .= '</div>';
 

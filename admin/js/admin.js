@@ -60,7 +60,7 @@ jQuery(document).ready(function($){
             }
 
             $(imageControl).val(imgurl);
-            $(imageControl).parents('.content-hide').children('.fieldset').children('.screenshot').show().html('<img src="'+imgurl+'">');
+            $(imageControl).parents('.fieldset').children('.screenshot').show().html('<img src="'+imgurl+'">');
             tb_remove();
         }
 

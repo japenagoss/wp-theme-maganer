@@ -152,9 +152,7 @@
     color: #ef521d;
 }
 
-#wp_tmgr_container .screenshot,
-#edittag .screenshot,
-#addtag .screenshot{
+#wp_tmgr_container .screenshot{
     max-width: 340px;
     padding: 5px;
     border: 1px solid #e3e3e3;
@@ -166,8 +164,6 @@
     display: none;
 }
 
-#wp_tmgr_container .screenshot img,
-#edittag .screenshot img,
-#addtag .screenshot img{
+#wp_tmgr_container .screenshot img{
     max-width: 340px;
 }
